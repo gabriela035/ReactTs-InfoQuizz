@@ -41,6 +41,14 @@ export const QuizProvider: React.FC<{ children: React.ReactNode }> = ({
 
   const submitAnswer = (index: number) => {
     const currentQuestion = questions[currentIndex];
+
+    // ✅ Check if already answered
+    const alreadyAnswered = userAnswers.some(
+      (answer) => answer.question.id === currentQuestion.id
+    );
+
+    if (alreadyAnswered) return; // 🚫 Prevent resubmission
+
     const isCorrect = currentQuestion.answers[index].isCorrect;
 
     setUserAnswers((prev) => [

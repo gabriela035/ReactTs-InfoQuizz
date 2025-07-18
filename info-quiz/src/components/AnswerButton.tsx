@@ -6,6 +6,7 @@ type Props = {
   isSelected: boolean;
   isCorrect?: boolean;
   showFeedback: boolean;
+  disabled?: boolean;
 };
 
 const AnswerButton = ({
@@ -14,12 +15,14 @@ const AnswerButton = ({
   isSelected,
   isCorrect,
   showFeedback,
+  disabled,
 }: Props) => {
   return (
     <Button
       fullWidth
       variant="contained"
       onClick={onClick}
+      disabled={disabled}
       sx={{
         marginY: 1,
         color: "white",
@@ -29,16 +32,16 @@ const AnswerButton = ({
             ? "green"
             : isSelected
             ? "red"
-            : "gray"
-          : "gray",
+            : undefined // default MUI color
+          : undefined,
         "&:hover": {
           backgroundColor: showFeedback
             ? isCorrect
               ? "darkgreen"
               : isSelected
               ? "darkred"
-              : "darkgray"
-            : "darkgray",
+              : undefined
+            : undefined,
         },
       }}
     >

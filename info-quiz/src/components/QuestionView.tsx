@@ -20,22 +20,17 @@ const QuestionView = ({
       <Typography variant="h6" mb={2}>
         {question.question}
       </Typography>
-      {question.answers.map((ans, index) => {
-        // Determine if the current answer is correct
-        const isCorrectAnswer = ans.isCorrect;
-        const isSelected = selectedAnswer === index;
-
-        return (
-          <AnswerButton
-            key={index}
-            text={ans.text}
-            isSelected={isSelected}
-            isCorrect={isCorrectAnswer}
-            showFeedback={showFeedback}
-            onClick={() => onSelect(index)}
-          />
-        );
-      })}
+      {question.answers.map((ans, index) => (
+        <AnswerButton
+          key={index}
+          text={ans.text}
+          isSelected={selectedAnswer === index}
+          isCorrect={ans.isCorrect}
+          disabled={selectedAnswer !== null}
+          showFeedback={showFeedback}
+          onClick={() => onSelect(index)}
+        />
+      ))}
     </Box>
   );
 };
