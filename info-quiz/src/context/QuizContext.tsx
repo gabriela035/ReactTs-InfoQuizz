@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState } from "react";
 import type { Question } from "../types/quiz";
+import { useNavigate } from "react-router-dom";
 
 type UserAnswer = {
   question: Question;
@@ -28,6 +29,7 @@ export const QuizProvider: React.FC<{ children: React.ReactNode }> = ({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [userAnswers, setUserAnswers] = useState<UserAnswer[]>([]);
   const [score, setScore] = useState(0);
+  const navigate = useNavigate();
 
   const setCategory = (name: string, questions: Question[]) => {
     setCurrentCategory(name);
@@ -52,11 +54,12 @@ export const QuizProvider: React.FC<{ children: React.ReactNode }> = ({
   const nextQuestion = () => {
     setCurrentIndex((prev) => prev + 1);
   };
-
+  console.log(currentCategory);
   const resetQuiz = () => {
     setCurrentIndex(0);
     setUserAnswers([]);
     setScore(0);
+    navigate(`/quiz/${encodeURIComponent(currentCategory)}`);
   };
 
   return (

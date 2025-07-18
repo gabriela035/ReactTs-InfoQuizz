@@ -15,21 +15,32 @@ const AnswerButton = ({
   isCorrect,
   showFeedback,
 }: Props) => {
-  let color: "success" | "error" | "primary" = "primary";
-
-  if (showFeedback) {
-    if (isCorrect) color = "success";
-    else if (isSelected && !isCorrect) color = "error";
-  }
-
   return (
     <Button
-      variant="contained"
       fullWidth
-      sx={{ marginY: 1 }}
-      color={color}
+      variant="contained"
       onClick={onClick}
-      disabled={showFeedback}
+      sx={{
+        marginY: 1,
+        color: "white",
+        fontWeight: 600,
+        backgroundColor: showFeedback
+          ? isCorrect
+            ? "green"
+            : isSelected
+            ? "red"
+            : "gray"
+          : "gray",
+        "&:hover": {
+          backgroundColor: showFeedback
+            ? isCorrect
+              ? "darkgreen"
+              : isSelected
+              ? "darkred"
+              : "darkgray"
+            : "darkgray",
+        },
+      }}
     >
       {text}
     </Button>
