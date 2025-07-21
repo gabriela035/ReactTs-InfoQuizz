@@ -15,7 +15,13 @@ const HomePage = () => {
           Choose Your Quiz
         </Typography>
       </Container>
-      <Grid container spacing={2} justifyContent="center">
+      <Grid
+        container
+        spacing={2}
+        justifyContent="center"
+        alignContent="center"
+        display={"flex"}
+      >
         {quizzes.map((quiz) => (
           <Grid key={quiz.name}>
             <QuizCard title={quiz.name} />

@@ -52,7 +52,7 @@ const AnswerButton = ({
       sx={{
         marginY: 1,
         fontWeight: 600,
-        backgroundColor: backgroundColor ?? "#cb5e3c",
+        backgroundColor: backgroundColor ?? "#34144fff",
         color: textColor,
         pointerEvents: disabled ? "none" : "auto",
         opacity: disabled ? 0.8 : 1, // slight fade if needed
