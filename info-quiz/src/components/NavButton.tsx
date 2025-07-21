@@ -6,7 +6,11 @@ type Props = {
 };
 
 const NavButton = ({ label, onClick }: Props) => (
-  <Button variant="contained" onClick={onClick} sx={{ m: 1 }}>
+  <Button
+    variant="contained"
+    onClick={onClick}
+    sx={{ m: 1, backgroundColor: "#9d3f1aff" }}
+  >
     {label}
   </Button>
 );

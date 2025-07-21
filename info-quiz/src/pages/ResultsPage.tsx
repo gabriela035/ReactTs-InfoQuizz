@@ -20,9 +20,16 @@ const ResultsPage = () => {
 
   return (
     <Container>
-      <Typography variant="h4" align="center" gutterBottom>
-        Quiz Finished!
-      </Typography>
+      <Box display="flex" flexDirection="column" alignItems="center" gap={1}>
+        <img
+          src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExemN4dWJwNHZ3eWVyem5pcnZyY2l2cWtuajFiZjh3aHNudXVyZ3NxdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/IDjrgUoFMGyKqy7Rn7/giphy.gif"
+          alt="Quiz GIF"
+          style={{ width: "55px", height: "66px" }}
+        />
+        <Typography variant="h4" align="center" gutterBottom>
+          Quiz Finished!
+        </Typography>
+      </Box>
       <Typography variant="h6" align="center" mb={3}>
         You answered {score} out of {total} correctly
       </Typography>
